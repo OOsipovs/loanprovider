@@ -11,17 +11,25 @@ public final class LoanApplication {
 
     @Id
     private long id;
-    private final int amount;
+    private  int amount;
     @ManyToOne
-    private final User borrower;
-    private final Duration repaymentTerm;
-    private final double interestRate;
+    private  User borrower;
+    private  int repaymentTerm;
+    private double interestRate;
 
-    public LoanApplication(int amount, User borrower, Duration repaymentTerm, double interestRate) {
+    public LoanApplication() {
+
+    }
+
+    public LoanApplication(int amount, User borrower, int repaymentTermInDays, double interestRate) {
         this.amount = amount;
         this.borrower = borrower;
-        this.repaymentTerm = repaymentTerm;
+        this.repaymentTerm = repaymentTermInDays;
         this.interestRate = interestRate;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public int getAmount() {
@@ -32,7 +40,7 @@ public final class LoanApplication {
         return borrower;
     }
 
-    public Duration getRepaymentTerm() {
+    public int getRepaymentTerm() {
         return repaymentTerm;
     }
 
